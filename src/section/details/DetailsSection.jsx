@@ -5,7 +5,7 @@ import TopLeft from "../../components/topLeft/TopLeft";
 import TopRight from "../../components/topRight/TopRight";
 import BottomSection from "../bottomSection/BottomSection";
 export default function DetailsSection() {
-    const showHide = useSelector(state => !state.exchange.showHide)
+    const showHide = useSelector(state => state.exchange.showHide)
     return (
         <Stack
             sx={{
