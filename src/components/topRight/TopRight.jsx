@@ -1,4 +1,3 @@
-import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import LocalAirportOutlinedIcon from '@mui/icons-material/LocalAirportOutlined';
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
@@ -154,18 +153,35 @@ export default function TopRight() {
                         justifyContent={'center'}
                         p={2}
                     >
-                        <Box>
+                        <Box
+                            sx={{
+                                cursor: 'pointer',
+                            }}
+                            onClick={() => {
+                                if (value === 'JFK') {
+                                    setValue('DAC')
+                                }
+                                else {
+                                    setValue('JFK')
+                                }
+                            }}
+                            position={'relative'}
+                        >
                             <LocalAirportOutlinedIcon
                                 sx={{
                                     fontSize: 60,
                                     transform: 'rotate(90deg)',
-                                    color: value === 'JFK' ? '#fff' : '#000',
+                                    color: value === 'JFK' ? '#f1f1f1' : '#000',
                                 }}
                             />
                             <LocalAirportOutlinedIcon
                                 sx={{
                                     fontSize: 60,
                                     transform: 'rotate(270deg)',
+                                    color: value !== 'JFK' ? '#f1f1f1' : '#000',
+                                    position: 'absolute',
+                                    top: 35,
+                                    left: 8
                                 }}
                             />
                         </Box>
