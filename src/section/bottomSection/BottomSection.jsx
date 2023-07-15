@@ -4,6 +4,7 @@ import FlightDetails from "../../components/flightDetails/FlightDetails";
 import Summary from "../../components/summary/Summary";
 import TabSection from "../../components/tabSection/TabSection";
 import Policy from "../../components/policy/Policy";
+import Baggage from "../../components/baggage/Baggage";
 
 export default function BottomSection() {
 
@@ -13,6 +14,7 @@ export default function BottomSection() {
             <FlightDetails />
             <Summary />
             <Policy />
+            <Baggage />
 
 
 
