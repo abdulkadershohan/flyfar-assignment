@@ -1,9 +1,13 @@
 import LocalAirportOutlinedIcon from '@mui/icons-material/LocalAirportOutlined';
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { changeTo } from '../../features/exchangeSlice';
 
 export default function TopRight() {
-    const [value, setValue] = React.useState('JFK');
+    const value = useSelector(state => state.exchange.value)
+    const dispatch = useDispatch()
+    // const [value, setValue] = React.useState('JFK');
     const JKF = {
         title: 'JFK',
         location: 'JF Kennedy Init Airport',
@@ -159,10 +163,12 @@ export default function TopRight() {
                             }}
                             onClick={() => {
                                 if (value === 'JFK') {
-                                    setValue('DAC')
+                                    dispatch(changeTo('DAC'))
+                                    // setValue('DAC')
                                 }
                                 else {
-                                    setValue('JFK')
+                                    // setValue('JFK')
+                                    dispatch(changeTo('JFK'))
                                 }
                             }}
                             position={'relative'}
