@@ -33,6 +33,7 @@ export default function PriceSection() {
             </Stack>
             <Typography variant="p"
                 align="right"
+                fontWeight={600}
                 fontSize={14}
             >
                 Flight Details

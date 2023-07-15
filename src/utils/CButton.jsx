@@ -13,7 +13,11 @@ export default function ContainedButtons({
     href,
     startIcon,
     sx,
+    bgcolor,
+    textColor,
     btnTitle,
+    radius,
+    fontWeight,
     ...rest
 }) {
     return (
@@ -27,11 +31,17 @@ export default function ContainedButtons({
             href={href}
             startIcon={startIcon}
             sx={{
-                bgcolor: '#2DCB90',
-                borderRadius: '20px',
+                bgcolor: bgcolor ? bgcolor : '#2DCB90',
+                borderRadius: radius ? radius : '20px',
                 px: 3,
                 fontSize: '16px',
-                color: '#B9FCE6',
+                fontWeight: fontWeight,
+                color: textColor ? textColor : '#fff',
+                '&:hover': {
+                    bgcolor: bgcolor ? bgcolor : '#2DCB90',
+                    color: textColor ? textColor : '#fff',
+                },
+                // color: textColor ? textColor : '#B9FCE6',
             }}
             {...rest}
         >

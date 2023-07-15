@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
     value: 'JFK',
+    showHide: false,
 };
 
 const exchangeSlice = createSlice({
@@ -11,9 +12,11 @@ const exchangeSlice = createSlice({
         changeTo: (state, action) => {
             state.value = action.payload;
         },
-
+        toggleShowHide: (state) => {
+            state.showHide = !state.showHide;
+        }
     },
 });
 
 export default exchangeSlice.reducer;
-export const { changeTo } = exchangeSlice.actions;
+export const { changeTo, toggleShowHide } = exchangeSlice.actions;
