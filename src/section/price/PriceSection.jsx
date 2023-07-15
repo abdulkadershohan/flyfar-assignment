@@ -9,6 +9,7 @@ export default function PriceSection() {
                 bgcolor: '#fff',
                 borderRadius: '10px',
                 p: 2,
+                py: 6,
                 borderLeft: '1px dashed #f1f1f1',
             }}
             gap={3}

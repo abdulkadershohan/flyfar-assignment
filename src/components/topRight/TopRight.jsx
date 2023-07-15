@@ -7,6 +7,7 @@ import { changeTo } from '../../features/exchangeSlice';
 export default function TopRight() {
     const value = useSelector(state => state.exchange.value)
     const dispatch = useDispatch()
+    // const [value, setValue] = React.useState('JFK');
     const JKF = {
         title: 'JFK',
         location: 'JF Kennedy Init Airport',
@@ -56,7 +57,14 @@ export default function TopRight() {
                     SUN 4TH JUL 2022
                 </Typography>
                 <Stack
-                    direction={'row'}
+                    direction={{
+                        xs: 'column',
+                        sm: 'row'
+                    }}
+                    gap={{
+                        xs: 1,
+                        sm: 0
+                    }}
                     justifyContent={'space-between'}
                     pt={6}
                 >
@@ -143,7 +151,7 @@ export default function TopRight() {
     }
     return (
         <Stack>
-            <Grid container spacing={2}
+            <Grid container
                 alignContent={'center'}
                 justifyContent={'center'}
             >
@@ -160,6 +168,7 @@ export default function TopRight() {
                             sx={{
                                 cursor: 'pointer',
                             }}
+                            mt={4}
                             onClick={() => {
                                 if (value === 'JFK') {
                                     dispatch(changeTo('DAC'))
@@ -172,19 +181,31 @@ export default function TopRight() {
                         >
                             <LocalAirportOutlinedIcon
                                 sx={{
-                                    fontSize: 60,
+                                    fontSize: {
+                                        xs: 40,
+                                        sm: 60
+                                    },
                                     transform: 'rotate(90deg)',
                                     color: value === 'JFK' ? '#f1f1f1' : '#000',
                                 }}
                             />
                             <LocalAirportOutlinedIcon
                                 sx={{
-                                    fontSize: 60,
+                                    fontSize: {
+                                        xs: 40,
+                                        sm: 60
+                                    },
                                     transform: 'rotate(270deg)',
                                     color: value !== 'JFK' ? '#f1f1f1' : '#000',
                                     position: 'absolute',
-                                    top: 35,
-                                    left: 8
+                                    top: {
+                                        xs: 20,
+                                        sm: 35
+                                    },
+                                    left: {
+                                        sm: 8,
+                                        xs: 4
+                                    }
                                 }}
                             />
                         </Box>

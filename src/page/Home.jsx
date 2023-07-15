@@ -9,18 +9,16 @@ export default function Home() {
             <Container>
                 <Stack>
                     <Grid container spacing={0.3}
-                    // sx={{
-                    //     display: 'flex',
-                    //     flexDirection: {
-                    //         xs: 'column-reverse',
-                    //         sm: 'column',
-                    //     }
-                    // }}
+                        alignItems={'center'}
+                        justifyContent={{
+                            xs: 'left',
+                            lg: 'center'
+                        }}
                     >
-                        <Grid item xs={10} >
+                        <Grid item xs={12} sm={8} md={10}>
                             <DetailsSection />
                         </Grid>
-                        <Grid item xs={6} sm={3} md={2}>
+                        <Grid item xs={6} sm={4} md={2}>
                             <PriceSection />
                         </Grid>
                     </Grid>
