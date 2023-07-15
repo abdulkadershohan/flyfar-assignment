@@ -7,7 +7,6 @@ import { changeTo } from '../../features/exchangeSlice';
 export default function TopRight() {
     const value = useSelector(state => state.exchange.value)
     const dispatch = useDispatch()
-    // const [value, setValue] = React.useState('JFK');
     const JKF = {
         title: 'JFK',
         location: 'JF Kennedy Init Airport',
@@ -164,10 +163,8 @@ export default function TopRight() {
                             onClick={() => {
                                 if (value === 'JFK') {
                                     dispatch(changeTo('DAC'))
-                                    // setValue('DAC')
                                 }
                                 else {
-                                    // setValue('JFK')
                                     dispatch(changeTo('JFK'))
                                 }
                             }}
