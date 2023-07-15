@@ -1,6 +1,7 @@
-import { Avatar, Stack, Step, StepLabel, Stepper, Typography } from "@mui/material";
+import { Avatar, Stack, Typography } from "@mui/material";
 import React from "react";
 import logo from '../../assets/img/logo.png';
+import MySteper from "../steper/Steper";
 
 export default function topLeft() {
     return (
@@ -31,21 +32,14 @@ export default function topLeft() {
                     color={'#bdb9b9'}
                 >5H 35 min</Typography>
 
-                <Stepper activeStep={1} alternativeLabel >
-                    <Step>
-                        <StepLabel ></StepLabel>
-                    </Step>
-                    <Step>
-                        <StepLabel></StepLabel>
-                    </Step>
-                </Stepper>
+                <MySteper />
                 <Typography variant="p"
                     fontSize={12}
                     fontWeight={600}
                     align="center"
                     textTransform={'uppercase'}
                     color={'#bdb9b9'}
-                >2 Stops</Typography>
+                >1 Stops</Typography>
             </Stack>
         </Stack>)
 }
