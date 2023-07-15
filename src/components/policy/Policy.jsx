@@ -40,7 +40,11 @@ export default function Policy() {
                                         <Stack
                                             bgcolor={'#2DCB90'}
                                             sx={{
-                                                width: '40%',
+                                                width: {
+                                                    xs: '100%',
+                                                    sm: '100%',
+                                                    md: '40%',
+                                                },
                                                 py: 1,
                                                 justifyContent: 'center',
                                                 alignItems: 'center',
