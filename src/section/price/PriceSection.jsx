@@ -1,8 +1,13 @@
 import { Stack, Typography } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleShowHide } from "../../features/exchangeSlice";
 import { CButton } from "../../utils";
 
 export default function PriceSection() {
+    const showHide = useSelector(state => state.exchange.showHide)
+    const dispatch = useDispatch()
+
     return (
         <Stack
             sx={{
@@ -35,8 +40,12 @@ export default function PriceSection() {
                 align="right"
                 fontWeight={600}
                 fontSize={14}
+                sx={{
+                    cursor: 'pointer',
+                }}
+                onClick={() => dispatch(toggleShowHide())}
             >
-                Flight Details
+                {showHide ? 'Hide Details' : 'Flight Details'}
             </Typography>
         </Stack>
     )

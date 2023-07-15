@@ -1,61 +1,43 @@
-import { Grid, Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeTab } from "../../features/tabSlice";
-import { CButton } from "../../utils";
+import { useSelector } from "react-redux";
+import TabSection from "../../components/tabSection/TabSection";
+import BottomDetail1 from "./BottomDetail1";
 
 export default function BottomSection() {
-    const selected = useSelector(state => state.tab.selected)
-    const dispatch = useDispatch()
-    const tab = [
-        {
-            id: 1,
-            name: 'Flight Details',
-            value: 1
-        },
-        {
-            id: 2,
-            name: 'Fare Summary',
-            value: 2
-        },
-        {
-            id: 3,
-            name: 'Fare Policy',
-            value: 3
-        },
-        {
-            id: 4,
-            name: 'Baggage',
-            value: 4
-        }
-    ]
-    React.useEffect(() => {
-        console.log(selected)
+    const value = useSelector(state => state.exchange.value)
 
-    }, [selected])
     return (
         <Stack>
-            <Grid container spacing={2}>
-                {
-                    tab.map((item, index) => (
-                        <Grid item xs={3} key={index}>
-                            <Stack>
-                                <CButton
-                                    bgcolor={selected === item.value ? '#2DCB90' : '#fff'}
-                                    radius={'10px'}
-                                    fontWeight={500}
-                                    textColor={selected === item.value ? '#fff' : '#000'}
-                                    onClick={() => dispatch(changeTab(item.value))}
-                                //variant={selected === item.value ? 'contained' : 'inherit'}
-                                >
-                                    {item.name}
-                                </CButton>
-                            </Stack>
+            <TabSection />
+            <BottomDetail1
+                title1={value === 'JFK' ? 'DOC' : 'JFK'}
+                title2={'DXB'}
+            />
+            <Stack
+                justifyContent={'center'}
+                alignItems={'center'}
+            >
+                <Stack
+                    width={'70%'}
+                    bgcolor={'#2DCB90'}
+                    p={1}
+                >
+                    <Typography variant="p"
+                        fontSize={12}
+                        align="center"
+                        fontWeight={600}
+                    >
+                        Chang planes at International | Kuawit |KW| Kuawit (KW), connectiong time: 04h:10m
+                    </Typography>
 
-                        </Grid>
-                    ))
-                }
-            </Grid>
+                </Stack>
+            </Stack>
+            <BottomDetail1
+                title2={value !== 'JFK' ? 'DOC' : 'JFK'}
+                title1={'DXB'}
+            />
+
 
         </Stack>
     )
